@@ -1,24 +1,29 @@
 graph = {
     'A':['B','C'],
     'B':['D','E'],
-    'C':['F'],
-    'D':['E'],
-    'E':['G'],
+    'C':['F','G'],
+    'D':['H','I'],
+    'E':['F'],
     'F':[],
-    'G':[]
+    'G':[],
+    'H':[],
+    'I':[],
 }
+def bfs(graph, start):
+    visited = set()
+    queue = []
+    bfs_order = []
+    queue.append(start)
+    while queue:
+        node = queue.pop(0)
+        if node not in visited:
+            visited.add(node)
+            bfs_order.append(node)
+            for neighbor in graph[node]:
+                if neighbor not in visited:
+                    queue.append(neighbor)
+    
+    return bfs_order
 
-visited=[]
-stack=[]
-def dfs(vistied,graph,node) : 
-    visited.append(node)
-    stack.append(node)
-    while stack :
-        s=stack.pop()
-        print(s , end =" ")
-        for neighbour in graph[s] :
-           if neighbour not in visited:
-              visited.append(neighbour)
-              stack.append(neighbour)
 
-dfs(visited,graph,'A')
+print("BFS:", bfs(graph, 'A'))
