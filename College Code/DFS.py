@@ -23,4 +23,4 @@ def dfs(vistied,graph,node) :
               visited.append(neighbour)
               stack.append(neighbour)
 
-dfs(visited,graph,'A')
+dfs(visited,graph,'A')class

@@ -12,6 +12,7 @@ graph = {
 def bfs(graph, start):
     visited = set()
     queue = []
+    
     bfs_order = []
     queue.append(start)
     while queue:
